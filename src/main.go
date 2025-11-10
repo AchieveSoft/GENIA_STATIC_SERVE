@@ -47,7 +47,7 @@ func (h staticHandler) GetServerAddress() string {
 }
 
 func main() {
-	staticHandler := newStaticHandler("config.json")
+	staticHandler := newStaticHandler("genia-static-serve.json")
 
 	http.Handle("/", staticHandler)
 
