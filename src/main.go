@@ -32,6 +32,7 @@ func (h staticHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	stat, err := os.Stat(path)
 	if err == nil && !stat.IsDir() {
 		http.FileServer(http.Dir(path)).ServeHTTP(w, r)
+		return
 	}
 
 	redirectPath := filepath.Join(h.Path, *h.IndexFile)
